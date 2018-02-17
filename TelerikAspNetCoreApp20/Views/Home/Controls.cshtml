@@ -3,12 +3,11 @@
     ViewBag.Title = "Controls";
 }
 
-<div class="container-fluid">
-    <div class="row my-3">
-        <div class="col">
-            @Html.Kendo().Button().Name("button1").Content("Default").HtmlAttributes(new { @class = "k-primary" }).Deferred()
+<div class="row my-3">
+    <div class="col">
+        @Html.Kendo().Button().Name("button1").Content("Default").HtmlAttributes(new { @class = "k-primary" }).Deferred()
 
-            @(
+        @(
                 Html.Kendo().Button()
                 .Name("primaryDisabledButton1")
                 .HtmlAttributes(new { @class = "k-primary" })
@@ -16,12 +15,12 @@
                 .Enable(false)
                 .Content("Disabled Primary Button")
                 .Deferred()
-            )
-        </div>
+        )
     </div>
-    <div class="row my-3">
-        <div class="col">
-            @(
+</div>
+<div class="row my-3">
+    <div class="col">
+        @(
                 Html.Kendo().Chart()
                 .Name("chart")
                 .Theme("bootstrap-v4")
@@ -56,22 +55,22 @@
                     .Format("{0}%")
                 )
                 .Deferred()
-            )
-        </div>
+        )
     </div>
-    <div class="row my-5">
-        <div class="col">
-            @(
+</div>
+<div class="row my-5">
+    <div class="col">
+        @(
                 Html.Kendo().Grid<TelerikAspNetCoreApp20.Controllers.CarViewModel>()
                 .Name("grid")
                 .HtmlAttributes(new { style = "height: 800px;" })
                 .Columns(columns =>
                 {
-                    columns.Bound(p => p.Name).Width(140);
-                    columns.Bound(p => p.Category).Width(140);
-                    columns.Bound(p => p.InStock).Width(140);
-                    columns.Bound(p => p.Discontinued).Width(100);
-                    columns.Command(command => { command.Edit(); command.Destroy(); }).Width(172);
+                    columns.Bound(p => p.Name).Width(220);
+                    columns.Bound(p => p.Category).Width(200);
+                    columns.Bound(p => p.InStock).Width(200);
+                    columns.Bound(p => p.Discontinued).Width(180);
+                    columns.Command(command => { command.Edit(); command.Destroy(); });
                 })
                 .ToolBar(toolbar =>
                 {
@@ -96,7 +95,6 @@
                     .Destroy(update => update.Action("Cars_Destroy", "Home"))
                 )
                 .Deferred()
-            )
-        </div>
+        )
     </div>
 </div>
