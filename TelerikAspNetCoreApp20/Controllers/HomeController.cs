@@ -16,7 +16,7 @@ namespace TelerikAspNetCoreApp20.Controllers
         public string Name { get; set; }
         public string Category { get; set; }
 
-        public int? InStock { get; set; }
+        public int InStock { get; set; }
 
         public bool Discontinued { get; set; }
     }
@@ -73,7 +73,7 @@ namespace TelerikAspNetCoreApp20.Controllers
             var results = new List<CarViewModel>();
             if (car != null && ModelState.IsValid)
             {
-                var newCar = new Car { Name = car.Name, Category = car.Category, Discontinued = car.Discontinued, InStock = car.InStock.Value };
+                var newCar = new Car { Name = car.Name, Category = car.Category, Discontinued = car.Discontinued, InStock = car.InStock };
                 db.Cars.Add(newCar);
                 db.SaveChanges();
                 car.Id = newCar.Id;
@@ -93,7 +93,7 @@ namespace TelerikAspNetCoreApp20.Controllers
                 {
                     dbCar.Name = car.Name;
                     dbCar.Category = car.Category; dbCar.Discontinued = car.Discontinued;
-                    dbCar.InStock = car.InStock.Value;
+                    dbCar.InStock = car.InStock;
 
                 }
             }
